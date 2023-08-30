@@ -33,15 +33,6 @@ public class MainPage extends BasePage {
     private final By logOutBtn = By.xpath("//a[@id='logout2']");
     private final By signUpBtnFromMainPage = By.xpath("//a[@id='signin2']");
 
-    public MainPage pause(){
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        return this;
-    }
-
     public MainPage open() {
         load("https://www.demoblaze.com/index.html");
         return this;

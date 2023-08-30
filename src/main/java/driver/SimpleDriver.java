@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.lang.module.Configuration;
 import java.time.Duration;
 
 public class SimpleDriver {
@@ -21,7 +20,7 @@ public class SimpleDriver {
 
     private static ChromeOptions getChromeOptions() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless");
+        //chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("start-maximized");
         System.out.println(chromeOptions.getBrowserVersion());
         return chromeOptions;
@@ -32,6 +31,7 @@ public class SimpleDriver {
     }
 
     public static void closeDriver() {
+        driver.close();
         driver.quit();
     }
  }

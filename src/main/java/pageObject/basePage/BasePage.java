@@ -72,5 +72,4 @@ public abstract class BasePage {
             throw new RuntimeException(e);
         }
     }
-
 }
