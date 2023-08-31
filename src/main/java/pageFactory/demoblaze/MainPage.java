@@ -4,26 +4,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import pageObject.basePage.BasePage;
 import pageObject.storePages.NavigationItem;
 
 import java.util.List;
 
+import static Utils.ConfigProvider.readConfigDemoblaze;
+
 public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='col-lg-4 col-md-6 mb-4']")
-    WebElement allProducts;
+    private WebElement allProducts;
 
     @FindBy(xpath = "//h5[text()='$360']")
-    WebElement galaxyS6Price;
+    private WebElement galaxyS6Price;
+
+    @FindBy(xpath = ".//a[text()='Dell i7 8gb']/../../h5")
+    private WebElement dellI7Price;
 
     public MainPage() {
+        load(readConfigDemoblaze().getString("url"));
         PageFactory.initElements(driver, this);
-    }
-
-    public MainPage open(String url) {
-        load(url);
-        return this;
     }
 
     public MainPage navigateTo(NavigationItem navigationItem ){
@@ -38,19 +38,14 @@ public class MainPage extends BasePage {
         return elements.size();
     }
 
-    public MainPage equalSize(Integer count) {
-        Assert.assertEquals(getSize(), count);
-        return this;
-    }
-
     public String getPrice() {
         pause(2);
         return galaxyS6Price.getText();
     }
 
-    public MainPage equalPrise(String price) {
-        Assert.assertEquals(getPrice(), price);
-        return this;
+    public String getPriceDellI7() {
+        pause(2);
+        return dellI7Price.getText();
     }
 
 }

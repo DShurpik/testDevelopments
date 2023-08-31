@@ -1,7 +1,5 @@
 package pageObject.storePages;
 
-import org.openqa.selenium.By;
-
 public enum NavigationItem {
     PHONES("Phones"),
     LAPTOPS ("Laptops"),

@@ -32,7 +32,4 @@ public class ProductPage extends BasePage {
         pause(2);
         return this;
     }
-
-
-
 }

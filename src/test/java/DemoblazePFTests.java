@@ -3,27 +3,47 @@ import org.testng.annotations.Test;
 import pageFactory.demoblaze.MainPage;
 import pageObject.basePage.BaseTestForPageFactory;
 
-import static Utils.ConfigProvider.readConfigDemoblaze;
 import static pageObject.storePages.NavigationItem.*;
 
 public class DemoblazePFTests extends BaseTestForPageFactory {
 
-    @Test(description = "Phones equal 7")
+    @Test(description = "Phones count equal 7 items")
     public void test1() {
-        new MainPage()
-                .open(readConfigDemoblaze().getString("url"))
+
+        int size = new MainPage()
                 .navigateTo(PHONES)
-                .equalSize(7);
+                .getSize();
+
+        Assert.assertEquals(size, 7);
     }
 
     @Test(description = "Phone Samsung Galaxy S6 price is $360")
     public void test2() {
-        MainPage mainPage = new MainPage();
 
-        mainPage.open(readConfigDemoblaze().getString("url"))
-                .navigateTo(PHONES);
+        String price = new MainPage()
+                .navigateTo(PHONES)
+                .getPrice();
 
-        Assert.assertEquals(mainPage.getPrice(), "$360");
+        Assert.assertEquals(price, "$360");
     }
+
+    @Test(description = "Laptops count equal 6")
+    public void test3() {
+        int size = new MainPage()
+                .navigateTo(LAPTOPS)
+                .getSize();
+
+        Assert.assertEquals(size, 6);
+    }
+
+    @Test(description = "Dell i7 8gb price is 700$")
+    public void test4() {
+        String price = new MainPage()
+                .navigateTo(LAPTOPS)
+                .getPriceDellI7();
+
+        Assert.assertEquals(price, "$700");
+    }
+
 
 }
