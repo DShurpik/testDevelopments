@@ -15,12 +15,6 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='col-lg-4 col-md-6 mb-4']")
     private WebElement allProducts;
 
-    @FindBy(xpath = "//h5[text()='$360']")
-    private WebElement galaxyS6Price;
-
-    @FindBy(xpath = ".//a[text()='Dell i7 8gb']/../../h5")
-    private WebElement dellI7Price;
-
     public MainPage() {
         load(readConfigDemoblaze().getString("url"));
         PageFactory.initElements(driver, this);
@@ -38,14 +32,14 @@ public class MainPage extends BasePage {
         return elements.size();
     }
 
-    public String getPrice() {
+    public String getPrice(ProductItems product) {
         pause(2);
-        return galaxyS6Price.getText();
+        return driver.findElement(By.xpath(".//a[text()=" + product.getItem() + "]/../../h5")).getText();
     }
 
-    public String getPriceDellI7() {
+    public String getPrice(String product) {
         pause(2);
-        return dellI7Price.getText();
+        //return driver.findElement(By.xpath(".//a[text()=" + product + "]/../../h5")).getText();
+        return driver.findElement(By.xpath(".//a[contains(text(), '" + product + "')]/../../h5")).getText();
     }
-
 }
