@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 
 import static Utils.ConfigProvider.readConfigDemoblaze;
 import static driver.SimpleDriver.closeDriver;
-import static driver.SimpleDriver.createDriver;
+import static driver.SimpleDriver.*;
 
 public abstract class BaseTestForPageFactory {
 
@@ -14,6 +14,7 @@ public abstract class BaseTestForPageFactory {
     public void setUp() {
         readConfigDemoblaze();
         createDriver();
+        //setWebDriver();
     }
 
     @AfterMethod

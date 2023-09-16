@@ -76,7 +76,7 @@ public class DemoblazeTests extends BaseTest {
                 .enterUserNameForReg(properties.getProperty("userName"), properties.getProperty("password"))
                 .navigateTo(LOG_IN)
                 .enterUserNameForAuth(properties.getProperty("userName"), properties.getProperty("password"))
-                .equalNameUser("Welcome " + properties.getProperty("userName") + "");
+                .equalNameUser("Welcome " + properties.getProperty("userName"));
     }
 
     @Test(description = "Check auth and check log out", enabled = true)
@@ -85,7 +85,7 @@ public class DemoblazeTests extends BaseTest {
                 .open()
                 .navigateTo(LOG_IN)
                 .enterUserNameForAuth(properties.getProperty("userName"), properties.getProperty("password"))
-                .equalNameUser("Welcome " + properties.getProperty("userName") + "")
+                .equalNameUser("Welcome " + properties.getProperty("userName"))
                 .clickLogOut()
                 .equalNameUserAfterLogIn("Sign up");
     }

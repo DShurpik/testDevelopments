@@ -17,6 +17,7 @@ public abstract class BaseTest {
     public void setUp() {
         properties = getProperties();
         createDriver();
+        //setWebDriver();
     }
 
     @AfterMethod
