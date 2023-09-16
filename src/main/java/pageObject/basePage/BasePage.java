@@ -10,7 +10,7 @@ import java.time.Duration;
 import java.util.Properties;
 
 import static Utils.PropertyReader.getProperties;
-import static driver.SimpleDriver.getDriver;
+import static driver.SingletonDriver.getInstance;
 
 public abstract class BasePage {
 
@@ -19,7 +19,7 @@ public abstract class BasePage {
     protected Properties properties;
 
     public BasePage() {
-        driver = getDriver();
+        driver = getInstance();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         properties = getProperties();
     }

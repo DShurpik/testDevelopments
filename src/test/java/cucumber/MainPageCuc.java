@@ -1,22 +1,24 @@
 package cucumber;
 
+import driver.SingletonDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import static driver.SimpleDriver.*;
-
 public class MainPageCuc {
+
+    private WebDriver driver = SingletonDriver.getInstance();
 
     public MainPageCuc() {
         // Конструктор без аргументов
-        PageFactory.initElements(getDriver(), this);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(how = How.PARTIAL_LINK_TEXT, using = "Laptops")
@@ -34,28 +36,28 @@ public class MainPageCuc {
 
     @When("Open web site")
     public MainPageCuc openPage() throws InterruptedException {
-        getDriver().get("https://www.demoblaze.com/");
+        driver.get("https://www.demoblaze.com/");
         Thread.sleep(3000);
         return this;
     }
 
     @And("Click add to cart button")
     public MainPageCuc clickAddToCart() throws InterruptedException {
-        getDriver().findElement(addToCartBtn).click();
+        driver.findElement(addToCartBtn).click();
         Thread.sleep(2000);
         return this;
     }
 
     @Then("Open phone tabs")
     public MainPageCuc navigateToPhone() throws InterruptedException {
-        getDriver().findElement(samsungS6).click();
+        driver.findElement(samsungS6).click();
         Thread.sleep(3000);
         return this;
     }
 
     public MainPageCuc pressNextBtn() throws InterruptedException {
-        WebElement element = getDriver().findElement(nextBtn);
-        Actions actions = new Actions(getDriver());
+        WebElement element = driver.findElement(nextBtn);
+        Actions actions = new Actions(driver);
 
         actions.scrollToElement(element);
         element.click();
@@ -65,7 +67,7 @@ public class MainPageCuc {
 
     @Then("Open MacBook Pro link")
     public MainPageCuc open_mac_book_pro_link() throws InterruptedException {
-        Actions actions = new Actions(getDriver());
+        Actions actions = new Actions(driver);
 
         actions.scrollToElement(macBookProFindBy);
         macBookProFindBy.click();
@@ -75,7 +77,7 @@ public class MainPageCuc {
 
     @And("Accept alert")
     public MainPageCuc acceptAlert() throws InterruptedException {
-        getDriver().switchTo().alert().accept();
+        driver.switchTo().alert().accept();
         Thread.sleep(2000);
         return this;
     }

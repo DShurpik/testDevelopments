@@ -6,7 +6,7 @@ import org.testng.annotations.*;
 import java.util.Properties;
 
 import static Utils.PropertyReader.getProperties;
-import static driver.SimpleDriver.*;
+import static driver.SingletonDriver.*;
 
 @Listeners(ListenerForProperty.class)
 
@@ -16,8 +16,6 @@ public abstract class BaseTest {
     @BeforeMethod
     public void setUp() {
         properties = getProperties();
-        createDriver();
-        //setWebDriver();
     }
 
     @AfterMethod

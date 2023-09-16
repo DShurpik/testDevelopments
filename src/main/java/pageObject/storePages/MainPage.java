@@ -8,8 +8,6 @@ import pageObject.basePage.BasePage;
 
 import java.util.List;
 
-import static driver.SimpleDriver.getDriver;
-
 public class MainPage extends BasePage {
 
     private final By allProducts = By.xpath("//div[@class='col-lg-4 col-md-6 mb-4']");
@@ -59,7 +57,7 @@ public class MainPage extends BasePage {
 
     public Integer getSize() {
         pause(1);
-        List<WebElement> elements = getDriver().findElements(allProducts);
+        List<WebElement> elements = driver.findElements(allProducts);
         System.out.println(elements.size() + " Size");
         return elements.size();
     }
