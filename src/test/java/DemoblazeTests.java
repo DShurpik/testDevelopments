@@ -6,7 +6,6 @@ import pageObject.storePages.ProductPage;
 
 import static pageObject.storePages.NavigationItem.*;
 
-
 public class DemoblazeTests extends BaseTest {
 
     @Test(description = "Phones equal 7", enabled = true)

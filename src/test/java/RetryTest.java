@@ -4,7 +4,7 @@ import org.testng.ITestNGMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import Utils.TestNGRetry;
+import utils.TestNGRetry;
 
 /** Solution for flacky tests */
 

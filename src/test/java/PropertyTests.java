@@ -1,9 +1,9 @@
-import Utils.ConfigProvider;
+import utils.ConfigProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static Utils.ConfigProvider.readConfig;
+import static utils.ConfigProvider.readConfig;
 
 public class PropertyTests {
 

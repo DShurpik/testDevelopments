@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="Data driven test">
+    <test name="Data driven test with parameters">
+        <parameter name="firstname" value="John from XMLFile"/>
+        <parameter name="lastname" value="Doe from XMLFile"/>
+        <parameter name="email" value="Johndoe@gmail.com from XMLFile"/>
+        <parameter name="password" value="password from XNLFile"/>
+        <parameter name="checkbox" value="false"/>
+        <classes>
+            <class name="BuilderTests"/>
+        </classes>
+    </test>
+</suite>

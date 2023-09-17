@@ -9,7 +9,7 @@ import pageObject.UIElement;
 import java.time.Duration;
 import java.util.Properties;
 
-import static Utils.PropertyReader.getProperties;
+import static utils.PropertyReader.getProperties;
 import static driver.SingletonDriver.getInstance;
 
 public abstract class BasePage {

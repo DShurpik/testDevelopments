@@ -5,7 +5,7 @@ import org.testng.annotations.*;
 
 import java.util.Properties;
 
-import static Utils.PropertyReader.getProperties;
+import static utils.PropertyReader.getProperties;
 import static driver.SingletonDriver.*;
 
 @Listeners(ListenerForProperty.class)

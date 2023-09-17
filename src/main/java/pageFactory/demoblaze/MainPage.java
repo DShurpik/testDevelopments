@@ -9,7 +9,7 @@ import pageObject.storePages.NavigationItem;
 
 import java.util.List;
 
-import static Utils.ConfigProvider.readConfigDemoblaze;
+import static utils.ConfigProvider.readConfigDemoblaze;
 
 public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='col-lg-4 col-md-6 mb-4']")

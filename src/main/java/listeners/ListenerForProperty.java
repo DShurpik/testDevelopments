@@ -1,6 +1,6 @@
 package listeners;
 
-import Utils.PropertyReader;
+import utils.PropertyReader;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
