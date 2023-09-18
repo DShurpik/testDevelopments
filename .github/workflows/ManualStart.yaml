@@ -20,4 +20,4 @@ jobs:
 
       - name: Build and Test
         run: |
-          mvn clean test -DSuiteXml="DDTest"
+          mvn clean test -DsuiteXml="DDTest"
