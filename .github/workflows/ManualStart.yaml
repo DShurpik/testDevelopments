@@ -1,0 +1,21 @@
+name: Custom Build and Test
+
+on:
+  workflow_dispatch:  # Это событие позволит запускать workflow вручную
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Build and Test
+        run: |
+          mvn clean test -DSuiteXml="DDTest"

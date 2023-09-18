@@ -36,10 +36,12 @@ public class CreateUserBuilder {
         }
 
         public Builder() {
+            System.out.println("Open class Builder");
             this.createUserBuilder = new CreateUserBuilder();
         }
 
         public CreateUserBuilder build() {
+            System.out.println("Object has been built");
             return createUserBuilder;
         }
     }
