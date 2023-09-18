@@ -9,7 +9,7 @@ import utils.TestNGLogginExtension;
 @Listeners(TestNGLogginExtension.class)
 public class BuilderTests {
 
-    @Test(enabled = false)
+    @Test
     public void test1() {
         CreateUserBuilder createUserBuilder = new CreateUserBuilder
                 .Builder()
@@ -23,7 +23,7 @@ public class BuilderTests {
         System.out.println(createUserBuilder.toString());
     }
 
-    @Test(enabled = false)
+    @Test
     public void test2() {
         CreateUserBuilderLombok user = CreateUserBuilderLombok
                 .builder()

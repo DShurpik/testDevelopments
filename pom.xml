@@ -12,7 +12,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
+        <aspectj.version>1.9.20.1</aspectj.version>
         <suiteXml/>
 
     </properties>
@@ -75,7 +75,6 @@
             <version>7.14.0</version>
         </dependency>
 
-
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -83,6 +82,12 @@
             <version>7.14.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.24.0</version>
+        </dependency>
 
     </dependencies>
 
@@ -91,25 +96,33 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M4</version>
+                <version>2.22.2</version>
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/${suiteXml}.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <!--          чтобы allure отчет формировался, даже если тесты падают-->
-                    <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
-                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar
-                        -Xmx256m
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.6</version>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
+                    <dependency>
+                        <groupId>io.qameta.allure</groupId>
+                        <artifactId>allure-maven</artifactId>
+                        <version>2.12.0</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
             </plugin>
         </plugins>
     </build>
