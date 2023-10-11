@@ -23,15 +23,16 @@ public class BuilderTests {
         System.out.println(createUserBuilder.toString());
     }
 
+    @Parameters({"firstname", "lastname", "email", "password", "checkbox"})
     @Test
-    public void test2() {
+    public void test2(String firstname, String lastname, String email, String password, Boolean checkbox) {
         CreateUserBuilderLombok user = CreateUserBuilderLombok
                 .builder()
-                .firstName("John")
-                .lastName("Doe")
-                .email("Johndoe@gmail.com")
-                .password("password")
-                .checkbox(true)
+                .firstName(firstname)
+                .lastName(lastname)
+                .email(email)
+                .password(password)
+                .checkbox(checkbox)
                 .build();
 
         System.out.println(user);

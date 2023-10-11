@@ -15,11 +15,11 @@ public class SingletonDriver {
     public static WebDriver getInstance() {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("start-maximized");
             options.addArguments("--remote-allow-origins=*");
 
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
+            driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(10));
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
