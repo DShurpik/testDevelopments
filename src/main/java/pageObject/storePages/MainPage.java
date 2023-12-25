@@ -1,5 +1,9 @@
 package pageObject.storePages;
 
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,8 +11,10 @@ import org.testng.Assert;
 import pageObject.basePage.BasePage;
 
 import java.util.List;
-
+@Log4j
 public class MainPage extends BasePage {
+
+    private static final Logger LOGGER = LogManager.getLogger(MainPage.class.getName());
 
     private final By allProducts = By.xpath("//div[@class='col-lg-4 col-md-6 mb-4']");
     private final By categoriesField = By.id("cat");
@@ -31,6 +37,7 @@ public class MainPage extends BasePage {
     private final By logOutBtn = By.xpath("//a[@id='logout2']");
     private final By signUpBtnFromMainPage = By.xpath("//a[@id='signin2']");
 
+    @Step("Open site page")
     public MainPage open() {
         load("https://www.demoblaze.com/index.html");
         return this;
@@ -50,20 +57,23 @@ public class MainPage extends BasePage {
         return this;
     }
 
+    @Step("Checking equal size")
     public MainPage equalSize(Integer count) {
         Assert.assertEquals(getSize(), count);
+        log.debug(String.format("Phone count is %d", getSize()));
         return this;
     }
 
     public Integer getSize() {
         pause(1);
         List<WebElement> elements = driver.findElements(allProducts);
-        System.out.println(elements.size() + " Size");
         return elements.size();
     }
 
+    @Step("Navigate to")
     public MainPage navigateTo(NavigationItem navigationItem ){
         click(getByLink(navigationItem.getItem()));
+        LOGGER.info(String.format("Navigate to %s", navigationItem));
         return this;
     }
 

@@ -10,7 +10,7 @@ public interface ConfigProvider {
         return ConfigFactory.load("apps.conf");
     }
 
-    static Config readConfigDemoblaze(){
-        return ConfigFactory.load("demoblaze.conf");
+    static Config readConfig(String conf){
+        return ConfigFactory.load(conf);
     }
 }

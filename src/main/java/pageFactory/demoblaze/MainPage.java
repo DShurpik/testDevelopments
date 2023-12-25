@@ -9,14 +9,14 @@ import pageObject.storePages.NavigationItem;
 
 import java.util.List;
 
-import static utils.ConfigProvider.readConfigDemoblaze;
+import static utils.ConfigProvider.readConfig;
 
 public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@class='col-lg-4 col-md-6 mb-4']")
     private WebElement allProducts;
 
     public MainPage() {
-        load(readConfigDemoblaze().getString("url"));
+        load(readConfig("demoblaze.conf").getString("url"));
         PageFactory.initElements(driver, this);
     }
 

@@ -1,12 +1,13 @@
 package driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
-
+@Log4j
 public class SingletonDriver {
 
     private static WebDriver driver;

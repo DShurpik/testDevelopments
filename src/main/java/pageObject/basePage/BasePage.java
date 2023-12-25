@@ -1,5 +1,8 @@
 package pageObject.basePage;
 
+import lombok.extern.log4j.Log4j2;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,8 +14,10 @@ import java.util.Properties;
 
 import static utils.PropertyReader.getProperties;
 import static driver.SingletonDriver.getInstance;
-
+@Log4j2
 public abstract class BasePage {
+
+    private static final Logger LOGGER = LogManager.getLogger(BasePage.class.getName());
 
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -26,6 +31,9 @@ public abstract class BasePage {
 
     protected void load(String url) {
         driver.get(url);
+        LOGGER.info(String.format("Page %s opened", url));
+        LOGGER.debug(String.format("Page %s opened", url));
+        log.debug("Open page " + url);
     }
 
     protected void click(By locator) {
