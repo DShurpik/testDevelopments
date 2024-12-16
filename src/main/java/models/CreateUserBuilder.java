@@ -1,5 +1,7 @@
 package models;
 
+import io.qameta.allure.Step;
+
 public class CreateUserBuilder {
     private String firstName;
     private String lastName;
@@ -7,16 +9,20 @@ public class CreateUserBuilder {
     private String password;
     private Boolean checkbox;
 
-    public static class Builder{
-        private CreateUserBuilder createUserBuilder;
+    public static class Builder {
+        protected CreateUserBuilder createUserBuilder;
 
+        @Step("Create a user with {firstName} name")
         public Builder withFirstName(String firstName) {
             createUserBuilder.firstName = firstName;
+            logStep("withFirstName", firstName);
             return this;
         }
 
+        @Step("Create a user with {lastName} last name")
         public Builder withLastName(String lastName) {
             createUserBuilder.lastName = lastName;
+            logStep("withLastName", lastName);
             return this;
         }
 
@@ -43,6 +49,11 @@ public class CreateUserBuilder {
         public CreateUserBuilder build() {
             System.out.println("Object has been built");
             return createUserBuilder;
+        }
+
+        // Логирование шага в Allure
+        private void logStep(String field, String value) {
+            io.qameta.allure.Allure.step(String.format("Set %s to %s", field, value));
         }
     }
 
@@ -76,4 +87,6 @@ public class CreateUserBuilder {
     public Boolean getCheckbox() {
         return checkbox;
     }
+
+
 }

@@ -18,6 +18,10 @@ public class CartPage extends BasePage {
     private final By succesBuy = By.xpath("//h2[text()='Thank you for your purchase!']");
     private final By okBtn = By.xpath("//button[text()='OK']");
 
+    public CartPage() {
+        super();
+    }
+
     public CartPage checkAddProduct(String productName) {
         Assert.assertEquals(getNameProduct(), productName);
         return this;

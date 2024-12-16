@@ -3,7 +3,7 @@
 
 
 <suite name="demoblaze.com tests">
-    <test name="demoblaze.com tests">
+    <test name="demoblaze.com tests" parallel="tests" thread-count="2">
         <classes>
             <class name="DemoblazeTests"/>
         </classes>
