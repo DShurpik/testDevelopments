@@ -8,6 +8,7 @@ public class CreateUserBuilder {
     private String email;
     private String password;
     private Boolean checkbox;
+    private int age;
 
     public static class Builder {
         protected CreateUserBuilder createUserBuilder;
@@ -41,6 +42,11 @@ public class CreateUserBuilder {
             return this;
         }
 
+        public Builder withAge(int age) {
+            createUserBuilder.age = age;
+            return this;
+        }
+
         public Builder() {
             System.out.println("Open class Builder");
             this.createUserBuilder = new CreateUserBuilder();
@@ -65,6 +71,7 @@ public class CreateUserBuilder {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", checkbox=" + checkbox +
+                ", age=" + age +
                 '}';
     }
 
@@ -86,6 +93,10 @@ public class CreateUserBuilder {
 
     public Boolean getCheckbox() {
         return checkbox;
+    }
+
+    public int getAge() {
+        return age;
     }
 
 
