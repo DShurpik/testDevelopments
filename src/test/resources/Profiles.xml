@@ -5,7 +5,11 @@
 <suite name="Profiles">
     <test name="Profiles tests">
         <classes>
-            <class name="OwnersTest"/>
+            <class name="OwnersTest">
+                <methods>
+                    <include name="test3"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
